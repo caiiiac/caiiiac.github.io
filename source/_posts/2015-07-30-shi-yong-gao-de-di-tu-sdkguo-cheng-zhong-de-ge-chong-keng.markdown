@@ -1,12 +1,11 @@
 ---
 layout: post
-title: "title"
-date: 2015-07-30 18:29:49 +0800
+title: "使用高德地图SDK过程中的各种坑"
+date: 2015-07-30 15:36:36 +0800
 comments: true
-categories: ios
+categories: 
 ---
-
-## APP内调起高德地图导航 ##
+## 1. APP内调起高德地图导航 
 
 
 > **高德文档描写如下:**
@@ -21,19 +20,19 @@ config.style = MADrivingStrategyShortest;
 //若未调起高德地图App,引导用户获取最新版本的
 if(![MANavigation openAMapNavigation:config])
 {
-    [MANavigation getLatestAMapApp];
+[MANavigation getLatestAMapApp];
 }
 ```
 
 **实际情况**
 
- -  **2.5.0** SDK使用此方法调用导航都无任何反应 `[MANavigation openAMapNavigation:config] 返回为成功`
- -  **2.6.0** SDK查无此类
- 
+-  **2.5.0** SDK使用此方法调用导航都无任何反应  `[MANavigation openAMapNavigation:config] 返回为成功`
+-  **2.6.0** SDK查无此类
+
 
 **解决方法**
 
-- [x] 更新SDK为**2.6.0** `pod 'AMap2DMap', '~> 2.6.0'`
+-  更新SDK为**2.6.0**  `pod 'AMap2DMap', '~> 2.6.0'`
 
 > **代码修改如下:**
 
@@ -48,6 +47,6 @@ config.strategy = MADrivingStrategyShortest;
 //若未调起高德地图App,引导用户获取最新版本的
 if(![MAMapURLSearch openAMapNavigation:config])
 {
-    [MAMapURLSearch getLatestAMapApp];
+[MAMapURLSearch getLatestAMapApp];
 }
 ```
