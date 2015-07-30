@@ -1,16 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>http://caiiiac.github.io/blog/2015/07/30/%E4%BD%BF%E7%94%A8%E9%AB%98%E5%BE%B7%E5%9C%B0%E5%9B%BESDK%E8%BF%87%E7%A8%8B%E4%B8%AD%E7%9A%84%E5%90%84%E7%A7%8D%E5%9D%91/</loc>
-    <lastmod>2015-07-30T18:29:49+08:00</lastmod>
+    <loc>http://caiiiac.github.io/blog/2015/07/30/shi-yong-gao-de-di-tu-sdkguo-cheng-zhong-de-ge-chong-keng/</loc>
+    <lastmod>2015-07-30T15:36:36+08:00</lastmod>
   </url>
   <url>
     <loc>http://caiiiac.github.io/blog/archives/</loc>
   </url>
   <url>
     <loc>http://caiiiac.github.io/</loc>
-  </url>
-  <url>
-    <loc>http://caiiiac.github.io/blog/categories/ios/</loc>
   </url>
 </urlset>

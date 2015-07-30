@@ -4,7 +4,7 @@
   <title><![CDATA[The scarecrow's blog]]></title>
   <link href="http://caiiiac.github.io/atom.xml" rel="self"/>
   <link href="http://caiiiac.github.io/"/>
-  <updated>2015-07-30T18:30:55+08:00</updated>
+  <updated>2015-07-30T18:39:43+08:00</updated>
   <id>http://caiiiac.github.io/</id>
   <author>
     <name><![CDATA[caiiiac]]></name>
@@ -14,11 +14,11 @@
 
   
   <entry>
-    <title type="html"><![CDATA[Title]]></title>
-    <link href="http://caiiiac.github.io/blog/2015/07/30/%E4%BD%BF%E7%94%A8%E9%AB%98%E5%BE%B7%E5%9C%B0%E5%9B%BESDK%E8%BF%87%E7%A8%8B%E4%B8%AD%E7%9A%84%E5%90%84%E7%A7%8D%E5%9D%91/"/>
-    <updated>2015-07-30T18:29:49+08:00</updated>
-    <id>http://caiiiac.github.io/blog/2015/07/30/使用高德地图SDK过程中的各种坑</id>
-    <content type="html"><![CDATA[<h2>APP内调起高德地图导航</h2>
+    <title type="html"><![CDATA[使用高德地图SDK过程中的各种坑]]></title>
+    <link href="http://caiiiac.github.io/blog/2015/07/30/shi-yong-gao-de-di-tu-sdkguo-cheng-zhong-de-ge-chong-keng/"/>
+    <updated>2015-07-30T15:36:36+08:00</updated>
+    <id>http://caiiiac.github.io/blog/2015/07/30/shi-yong-gao-de-di-tu-sdkguo-cheng-zhong-de-ge-chong-keng</id>
+    <content type="html"><![CDATA[<h2>1. APP内调起高德地图导航</h2>
 
 <blockquote><p><strong>高德文档描写如下:</strong></p></blockquote>
 
@@ -42,14 +42,14 @@
 </span><span class='line'>//若未调起高德地图App,引导用户获取最新版本的
 </span><span class='line'>if(![MANavigation openAMapNavigation:config])
 </span><span class='line'>{
-</span><span class='line'>    [MANavigation getLatestAMapApp];
+</span><span class='line'>[MANavigation getLatestAMapApp];
 </span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
 
 
 <p><strong>实际情况</strong></p>
 
 <ul>
-<li><strong>2.5.0</strong> SDK使用此方法调用导航都无任何反应 <code>[MANavigation openAMapNavigation:config] 返回为成功</code></li>
+<li><strong>2.5.0</strong> SDK使用此方法调用导航都无任何反应  <code>[MANavigation openAMapNavigation:config] 返回为成功</code></li>
 <li><strong>2.6.0</strong> SDK查无此类</li>
 </ul>
 
@@ -57,7 +57,7 @@
 <p><strong>解决方法</strong></p>
 
 <ul>
-<li>[x] 更新SDK为<strong>2.6.0</strong> <code>pod 'AMap2DMap', '~&gt; 2.6.0'</code></li>
+<li>更新SDK为<strong>2.6.0</strong>  <code>pod 'AMap2DMap', '~&gt; 2.6.0'</code></li>
 </ul>
 
 
@@ -85,7 +85,7 @@
 </span><span class='line'>//若未调起高德地图App,引导用户获取最新版本的
 </span><span class='line'>if(![MAMapURLSearch openAMapNavigation:config])
 </span><span class='line'>{
-</span><span class='line'>    [MAMapURLSearch getLatestAMapApp];
+</span><span class='line'>[MAMapURLSearch getLatestAMapApp];
 </span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
 
 ]]></content>
