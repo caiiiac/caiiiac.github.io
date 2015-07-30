@@ -9,7 +9,7 @@
   <meta name="author" content="caiiiac">
 
   
-  <meta name="description" content="使用高德地图SDK过程中的各种坑 标签（空格分隔）： 高德地图SDK 高德SDK APP内调起高德地图导航 高德文档描写如下: 1
+  <meta name="description" content="APP内调起高德地图导航 高德文档描写如下: 1
 2
 3
 4
@@ -21,7 +21,8 @@
 10
 11
 //配置导航参数
-MANaviConfig * config = [[MANaviConfig alloc] init &hellip;">
+MANaviConfig * config = [[MANaviConfig alloc] init];
+config.destination = view.annotation. &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -99,13 +100,7 @@ MANaviConfig * config = [[MANaviConfig alloc] init &hellip;">
   </header>
 
 
-  <div class="entry-content"><h1>使用高德地图SDK过程中的各种坑</h1>
-
-<p>标签（空格分隔）： 高德地图SDK 高德SDK</p>
-
-<hr />
-
-<h2>APP内调起高德地图导航</h2>
+  <div class="entry-content"><h2>APP内调起高德地图导航</h2>
 
 <blockquote><p><strong>高德文档描写如下:</strong></p></blockquote>
 
@@ -133,21 +128,13 @@ MANaviConfig * config = [[MANaviConfig alloc] init &hellip;">
 </span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
 
 
-<hr />
-
 <p><strong>实际情况</strong></p>
 
 <ul>
-<li><strong>2.5.0</strong> SDK使用此方法调用导航都无任何反应 <code>[MANavigation openAMapNavigation:config] 返回为成功</code>
-
-<ul>
+<li><strong>2.5.0</strong> SDK使用此方法调用导航都无任何反应 <code>[MANavigation openAMapNavigation:config] 返回为成功</code></li>
 <li><strong>2.6.0</strong> SDK查无此类</li>
 </ul>
-</li>
-</ul>
 
-
-<hr />
 
 <p><strong>解决方法</strong></p>
 
