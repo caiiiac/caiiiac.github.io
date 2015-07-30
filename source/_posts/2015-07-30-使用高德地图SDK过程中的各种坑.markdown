@@ -1,0 +1,52 @@
+# 使用高德地图SDK过程中的各种坑
+
+标签（空格分隔）： 高德地图SDK 高德SDK 
+
+---
+
+## APP内调起高德地图导航 ##
+
+
+> **高德文档描写如下:**
+
+
+```
+//配置导航参数
+MANaviConfig * config = [[MANaviConfig alloc] init];
+config.destination = view.annotation.coordinate;//终点坐标，Annotation的坐标
+config.appScheme = [self getApplicationScheme];//返回的Scheme，需手动设置
+config.appName = [self getApplicationName];//应用名称，需手动设置
+config.style = MADrivingStrategyShortest;
+//若未调起高德地图App,引导用户获取最新版本的
+if(![MANavigation openAMapNavigation:config])
+{
+    [MANavigation getLatestAMapApp];
+}
+```
+----------
+**实际情况**
+
+ -  **2.5.0** SDK使用此方法调用导航都无任何反应 `[MANavigation openAMapNavigation:config] 返回为成功`
+ - **2.6.0** SDK查无此类
+ ---
+
+**解决方法**
+
+- [x] 更新SDK为**2.6.0** `pod 'AMap2DMap', '~> 2.6.0'`
+
+> **代码修改如下:**
+
+```
+//配置导航参数
+MANaviConfig * config = [[MANaviConfig alloc] init];
+config.destination = _parkingCoordinate;         //终点坐标，Annotation的坐标    
+config.appScheme = [self getApplicationScheme];  //返回的Scheme，需手动设置
+config.appName = [self getApplicationName];      //应用名称，需手动设置
+config.strategy = MADrivingStrategyShortest;
+
+//若未调起高德地图App,引导用户获取最新版本的
+if(![MAMapURLSearch openAMapNavigation:config])
+{
+    [MAMapURLSearch getLatestAMapApp];
+}
+```
