@@ -4,7 +4,7 @@
   <title><![CDATA[The scarecrow's blog]]></title>
   <link href="http://caiiiac.github.io/atom.xml" rel="self"/>
   <link href="http://caiiiac.github.io/"/>
-  <updated>2015-07-30T16:00:58+08:00</updated>
+  <updated>2015-07-30T17:44:00+08:00</updated>
   <id>http://caiiiac.github.io/</id>
   <author>
     <name><![CDATA[caiiiac]]></name>
@@ -18,7 +18,16 @@
     <link href="http://caiiiac.github.io/blog/2015/07/30/hello-world/"/>
     <updated>2015-07-30T15:17:46+08:00</updated>
     <id>http://caiiiac.github.io/blog/2015/07/30/hello-world</id>
-    <content type="html"><![CDATA[
+    <content type="html"><![CDATA[<h2>APP内调起高德地图导航</h2>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[使用高德地图SDK过程中的各种坑]]></title>
+    <link href="http://caiiiac.github.io/blog/2015/07/30/categories/"/>
+    <updated>2015-07-30T15:17:46+08:00</updated>
+    <id>http://caiiiac.github.io/blog/2015/07/30/categories</id>
+    <content type="html"><![CDATA[<h2>APP内调起高德地图导航</h2>
 ]]></content>
   </entry>
   
