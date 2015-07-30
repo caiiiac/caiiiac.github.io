@@ -1,14 +1,8 @@
-# 使用高德地图SDK过程中的各种坑
-
-标签（空格分隔）： 高德地图SDK 高德SDK 
-
----
 
 ## APP内调起高德地图导航 ##
 
 
 > **高德文档描写如下:**
-
 
 ```
 //配置导航参数
@@ -23,12 +17,12 @@ if(![MANavigation openAMapNavigation:config])
     [MANavigation getLatestAMapApp];
 }
 ```
-----------
+
 **实际情况**
 
  -  **2.5.0** SDK使用此方法调用导航都无任何反应 `[MANavigation openAMapNavigation:config] 返回为成功`
- - **2.6.0** SDK查无此类
- ---
+ -  **2.6.0** SDK查无此类
+ 
 
 **解决方法**
 
