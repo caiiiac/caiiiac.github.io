@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[The scarecrow's blog]]></title>
+  <link href="http://caiiiac.github.io/atom.xml" rel="self"/>
+  <link href="http://caiiiac.github.io/"/>
+  <updated>2015-07-30T16:00:58+08:00</updated>
+  <id>http://caiiiac.github.io/</id>
+  <author>
+    <name><![CDATA[caiiiac]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Hello World]]></title>
+    <link href="http://caiiiac.github.io/blog/2015/07/30/hello-world/"/>
+    <updated>2015-07-30T15:17:46+08:00</updated>
+    <id>http://caiiiac.github.io/blog/2015/07/30/hello-world</id>
+    <content type="html"><![CDATA[
+]]></content>
+  </entry>
+  
+</feed>
