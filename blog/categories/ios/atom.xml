@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Ios | The scarecrow's blog]]></title>
+  <link href="http://caiiiac.github.io/blog/categories/ios/atom.xml" rel="self"/>
+  <link href="http://caiiiac.github.io/"/>
+  <updated>2015-07-30T18:30:55+08:00</updated>
+  <id>http://caiiiac.github.io/</id>
+  <author>
+    <name><![CDATA[caiiiac]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Title]]></title>
+    <link href="http://caiiiac.github.io/blog/2015/07/30/%E4%BD%BF%E7%94%A8%E9%AB%98%E5%BE%B7%E5%9C%B0%E5%9B%BESDK%E8%BF%87%E7%A8%8B%E4%B8%AD%E7%9A%84%E5%90%84%E7%A7%8D%E5%9D%91/"/>
+    <updated>2015-07-30T18:29:49+08:00</updated>
+    <id>http://caiiiac.github.io/blog/2015/07/30/使用高德地图SDK过程中的各种坑</id>
+    <content type="html"><![CDATA[<h2>APP内调起高德地图导航</h2>
+
+<blockquote><p><strong>高德文档描写如下:</strong></p></blockquote>
+
+<pre><code>//配置导航参数
+MANaviConfig * config = [[MANaviConfig alloc] init];
+config.destination = view.annotation.coordinate;//终点坐标，Annotation的坐标
+config.appScheme = [self getApplicationScheme];//返回的Scheme，需手动设置
+config.appName = [self getApplicationName];//应用名称，需手动设置
+config.style = MADrivingStrategyShortest;
+//若未调起高德地图App,引导用户获取最新版本的
+if(![MANavigation openAMapNavigation:config])
+{
+    [MANavigation getLatestAMapApp];
+}
+</code></pre>
+
+<p><strong>实际情况</strong></p>
+
+<ul>
+<li><strong>2.5.0</strong> SDK使用此方法调用导航都无任何反应 <code>[MANavigation openAMapNavigation:config] 返回为成功</code></li>
+<li><strong>2.6.0</strong> SDK查无此类</li>
+</ul>
+
+
+<p><strong>解决方法</strong></p>
+
+<ul>
+<li>[x] 更新SDK为<strong>2.6.0</strong> <code>pod 'AMap2DMap', '~&gt; 2.6.0'</code></li>
+</ul>
+
+
+<blockquote><p><strong>代码修改如下:</strong></p></blockquote>
+
+<pre><code>//配置导航参数
+MANaviConfig * config = [[MANaviConfig alloc] init];
+config.destination = _parkingCoordinate;         //终点坐标，Annotation的坐标    
+config.appScheme = [self getApplicationScheme];  //返回的Scheme，需手动设置
+config.appName = [self getApplicationName];      //应用名称，需手动设置
+config.strategy = MADrivingStrategyShortest;
+
+//若未调起高德地图App,引导用户获取最新版本的
+if(![MAMapURLSearch openAMapNavigation:config])
+{
+    [MAMapURLSearch getLatestAMapApp];
+}
+</code></pre>
+]]></content>
+  </entry>
+  
+</feed>
