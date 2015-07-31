@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: 命令 | The scarecrow's blog]]></title>
+  <link href="http://caiiiac.github.io/blog/categories/ming-ling/atom.xml" rel="self"/>
+  <link href="http://caiiiac.github.io/"/>
+  <updated>2015-07-31T18:45:25+08:00</updated>
+  <id>http://caiiiac.github.io/</id>
+  <author>
+    <name><![CDATA[caiiiac]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Octopress写博客命令及安装步骤]]></title>
+    <link href="http://caiiiac.github.io/blog/2015/07/31/octopressxie-bo-ke-ming-ling-ji-an-zhuang-bu-zou/"/>
+    <updated>2015-07-31T18:20:22+08:00</updated>
+    <id>http://caiiiac.github.io/blog/2015/07/31/octopressxie-bo-ke-ming-ling-ji-an-zhuang-bu-zou</id>
+    <content type="html"><![CDATA[<h2>Octopress关于写博客的命令</h2>
+
+<p><strong>创建新文章</strong></p>
+
+<pre><code>$ rake new_post['title']
+</code></pre>
+
+<p>生成的文件在<code>~/source/_posts</code>目录下</p>
+
+<p><strong>编辑文章</strong></p>
+
+<pre><code>$ rake generate
+
+$ git add .
+$ git commit -m "comment" 
+$ git push origin source
+
+$ rake deploy
+
+
+$ rake preview #本地生成浏览 localhost:4000
+</code></pre>
+
+<h2>安装Octopress过程</h2>
+
+<pre><code>$ git clone git://github.com/imathis/octopress.git octopress
+$ cd octopress
+
+#安装依赖
+$ gem install bundler
+$ rbenv rehash
+$ bundle install
+
+#安装octopress默认主题
+$ rake install
+</code></pre>
+
+<h2>设置github和Octopress的关联</h2>
+
+<p>第一步要做的是去github创建一个<code>username.github.io</code>的repo
+运行如下命令,按照提示完成关联</p>
+
+<pre><code>$ rake setup_github_pages
+</code></pre>
+
+<h2>如果github没有添加SSH keys</h2>
+
+<p>首先创建<strong>SSH keys</strong>,终端敲入:<code>ssh-keygen</code>,根据系统提示进行设置.</p>
+
+<p>生成的<strong>SSH keys</strong>保存在: <code>~/.ssh</code>拷贝生成的文件内容,将其添加至github帐号管理的SSH key中,就可以克隆github上的代码库了.</p>
+]]></content>
+  </entry>
+  
+</feed>

@@ -4,7 +4,7 @@
   <title><![CDATA[The scarecrow's blog]]></title>
   <link href="http://caiiiac.github.io/atom.xml" rel="self"/>
   <link href="http://caiiiac.github.io/"/>
-  <updated>2015-07-31T18:13:44+08:00</updated>
+  <updated>2015-07-31T18:45:25+08:00</updated>
   <id>http://caiiiac.github.io/</id>
   <author>
     <name><![CDATA[caiiiac]]></name>
@@ -12,6 +12,86 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Octopress写博客命令及安装步骤]]></title>
+    <link href="http://caiiiac.github.io/blog/2015/07/31/octopressxie-bo-ke-ming-ling-ji-an-zhuang-bu-zou/"/>
+    <updated>2015-07-31T18:20:22+08:00</updated>
+    <id>http://caiiiac.github.io/blog/2015/07/31/octopressxie-bo-ke-ming-ling-ji-an-zhuang-bu-zou</id>
+    <content type="html"><![CDATA[<h2>Octopress关于写博客的命令</h2>
+
+<p><strong>创建新文章</strong></p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ rake new_post['title']</span></code></pre></td></tr></table></div></figure>
+
+
+<p>生成的文件在<code>~/source/_posts</code>目录下</p>
+
+<p><strong>编辑文章</strong></p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ rake generate
+</span><span class='line'>
+</span><span class='line'>$ git add .
+</span><span class='line'>$ git commit -m "comment" 
+</span><span class='line'>$ git push origin source
+</span><span class='line'>
+</span><span class='line'>$ rake deploy
+</span><span class='line'>
+</span><span class='line'>
+</span><span class='line'>$ rake preview #本地生成浏览 localhost:4000</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>安装Octopress过程</h2>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ git clone git://github.com/imathis/octopress.git octopress
+</span><span class='line'>$ cd octopress
+</span><span class='line'>
+</span><span class='line'>#安装依赖
+</span><span class='line'>$ gem install bundler
+</span><span class='line'>$ rbenv rehash
+</span><span class='line'>$ bundle install
+</span><span class='line'>
+</span><span class='line'>#安装octopress默认主题
+</span><span class='line'>$ rake install</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>设置github和Octopress的关联</h2>
+
+<p>第一步要做的是去github创建一个<code>username.github.io</code>的repo
+运行如下命令,按照提示完成关联</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ rake setup_github_pages</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>如果github没有添加SSH keys</h2>
+
+<p>首先创建<strong>SSH keys</strong>,终端敲入:<code>ssh-keygen</code>,根据系统提示进行设置.</p>
+
+<p>生成的<strong>SSH keys</strong>保存在: <code>~/.ssh</code>拷贝生成的文件内容,将其添加至github帐号管理的SSH key中,就可以克隆github上的代码库了.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[使用高德地图SDK过程中的各种坑]]></title>
