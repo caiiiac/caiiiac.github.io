@@ -3,7 +3,7 @@ layout: post
 title: "使用高德地图SDK过程中的各种坑"
 date: 2015-07-30 15:36:36 +0800
 comments: true
-categories: 
+categories: 地图
 ---
 ## 1. APP内调起高德地图导航 
 
