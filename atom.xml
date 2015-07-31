@@ -4,7 +4,7 @@
   <title><![CDATA[The scarecrow's blog]]></title>
   <link href="http://caiiiac.github.io/atom.xml" rel="self"/>
   <link href="http://caiiiac.github.io/"/>
-  <updated>2015-07-31T18:01:40+08:00</updated>
+  <updated>2015-07-31T18:13:44+08:00</updated>
   <id>http://caiiiac.github.io/</id>
   <author>
     <name><![CDATA[caiiiac]]></name>
@@ -87,6 +87,26 @@
 </span><span class='line'>{
 </span><span class='line'>[MAMapURLSearch getLatestAMapApp];
 </span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>2. - (void)setZoomLevel:(double)newZoomLevel animated:(BOOL)animated; 失效</h2>
+
+<p><strong>使用情况</strong></p>
+
+<ul>
+<li><strong>2.5.0</strong> SDK使用此方法设置一次,永久有效</li>
+<li><strong>2.6.0</strong> SDK使用此方法设置无效,需要延时设置</li>
+</ul>
+
+
+<p><strong>解决方法,代码如下</strong></p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+</span><span class='line'>[self.mapView setZoomLevel:14.f animated:YES];
+</span><span class='line'>});</span></code></pre></td></tr></table></div></figure>
 
 ]]></content>
   </entry>
