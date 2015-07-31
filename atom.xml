@@ -4,7 +4,7 @@
   <title><![CDATA[The scarecrow's blog]]></title>
   <link href="http://caiiiac.github.io/atom.xml" rel="self"/>
   <link href="http://caiiiac.github.io/"/>
-  <updated>2015-07-30T18:39:43+08:00</updated>
+  <updated>2015-07-31T17:19:02+08:00</updated>
   <id>http://caiiiac.github.io/</id>
   <author>
     <name><![CDATA[caiiiac]]></name>
@@ -22,34 +22,24 @@
 
 <blockquote><p><strong>高德文档描写如下:</strong></p></blockquote>
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>//配置导航参数
-</span><span class='line'>MANaviConfig * config = [[MANaviConfig alloc] init];
-</span><span class='line'>config.destination = view.annotation.coordinate;//终点坐标，Annotation的坐标
-</span><span class='line'>config.appScheme = [self getApplicationScheme];//返回的Scheme，需手动设置
-</span><span class='line'>config.appName = [self getApplicationName];//应用名称，需手动设置
-</span><span class='line'>config.style = MADrivingStrategyShortest;
-</span><span class='line'>//若未调起高德地图App,引导用户获取最新版本的
-</span><span class='line'>if(![MANavigation openAMapNavigation:config])
-</span><span class='line'>{
-</span><span class='line'>[MANavigation getLatestAMapApp];
-</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
-
+<p>```
+//配置导航参数
+MANaviConfig * config = [[MANaviConfig alloc] init];
+config.destination = view.annotation.coordinate;//终点坐标，Annotation的坐标
+config.appScheme = [self getApplicationScheme];//返回的Scheme，需手动设置
+config.appName = [self getApplicationName];//应用名称，需手动设置
+config.style = MADrivingStrategyShortest;
+//若未调起高德地图App,引导用户获取最新版本的
+if(![MANavigation openAMapNavigation:config])
+{
+[MANavigation getLatestAMapApp];
+}
+```</p>
 
 <p><strong>实际情况</strong></p>
 
 <ul>
-<li><strong>2.5.0</strong> SDK使用此方法调用导航都无任何反应  <code>[MANavigation openAMapNavigation:config] 返回为成功</code></li>
+<li><strong>2.5.0</strong> SDK使用此方法调用导航无任何反应  <code>[MANavigation openAMapNavigation:config] 返回为成功</code></li>
 <li><strong>2.6.0</strong> SDK查无此类</li>
 </ul>
 
@@ -63,31 +53,32 @@
 
 <blockquote><p><strong>代码修改如下:</strong></p></blockquote>
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>//配置导航参数
-</span><span class='line'>MANaviConfig * config = [[MANaviConfig alloc] init];
-</span><span class='line'>config.destination = _parkingCoordinate;         //终点坐标，Annotation的坐标    
-</span><span class='line'>config.appScheme = [self getApplicationScheme];  //返回的Scheme，需手动设置
-</span><span class='line'>config.appName = [self getApplicationName];      //应用名称，需手动设置
-</span><span class='line'>config.strategy = MADrivingStrategyShortest;
-</span><span class='line'>
-</span><span class='line'>//若未调起高德地图App,引导用户获取最新版本的
-</span><span class='line'>if(![MAMapURLSearch openAMapNavigation:config])
-</span><span class='line'>{
-</span><span class='line'>[MAMapURLSearch getLatestAMapApp];
-</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
+<p>```
+//配置导航参数
+MANaviConfig * config = [[MANaviConfig alloc] init];
+config.destination = _parkingCoordinate;         //终点坐标，Annotation的坐标<br/>
+config.appScheme = [self getApplicationScheme];  //返回的Scheme，需手动设置
+config.appName = [self getApplicationName];      //应用名称，需手动设置
+config.strategy = MADrivingStrategyShortest;</p>
 
+<p>//若未调起高德地图App,引导用户获取最新版本的
+if(![MAMapURLSearch openAMapNavigation:config])
+{
+[MAMapURLSearch getLatestAMapApp];
+}
+```</p>
+
+<h2>2. <a href="">- (void)setZoomLevel:(double)newZoomLevel animated:(BOOL)animated; 机制区别</a></h2>
+
+<p><strong>使用情况</strong>
+ - 之前2.5.0版本,直接 <a href=""><code>[_mapView setZoomLevel:16.f animated:YES]</code></a>在之后就不需要再次设置,地图就可以一直以配置好的<strong>ZoomLevel</strong>进行显示
+- 更新至2.6.0版本后, 突然发现 <a href=""><code>[_mapView setZoomLevel:16.f animated:YES]</code></a>失去了效果</p>
+
+<p><strong>解决方法</strong>
+- 如果有进行POI搜索,在有搜索结果后进行 <code>[_mapView setZoomLevel:16.f animated:YES]</code>
+- 没有的话,要延时对<strong>ZoomLevel</strong>进行设置 <strong>代码如下:</strong> <code>``dispatchafter(dispatchtime(DISPATCHTIMENOW, (int64t)(0.5  NSECPERSEC)), dispatchgetmainqueue(), ^{
+   </code><a href="">self.mapView setZoomLevel:14.f animated:YES</a>;
+    });</p>
 ]]></content>
   </entry>
   
