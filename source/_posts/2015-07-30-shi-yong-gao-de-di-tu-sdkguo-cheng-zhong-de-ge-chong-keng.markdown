@@ -50,3 +50,21 @@ if(![MAMapURLSearch openAMapNavigation:config])
 [MAMapURLSearch getLatestAMapApp];
 }
 ```
+
+
+## 2. - (void)setZoomLevel:(double)newZoomLevel animated:(BOOL)animated; 失效
+
+
+**使用情况**
+
+-  **2.5.0** SDK使用此方法设置一次,永久有效
+-  **2.6.0** SDK使用此方法设置无效,需要延时设置
+
+
+**解决方法,代码如下**
+
+```
+dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+[self.mapView setZoomLevel:14.f animated:YES];
+});
+```
