@@ -4,7 +4,7 @@
   <title><![CDATA[Category: 命令 | The scarecrow's blog]]></title>
   <link href="http://caiiiac.github.io/blog/categories/ming-ling/atom.xml" rel="self"/>
   <link href="http://caiiiac.github.io/"/>
-  <updated>2015-08-03T10:09:54+08:00</updated>
+  <updated>2015-08-03T10:17:27+08:00</updated>
   <id>http://caiiiac.github.io/</id>
   <author>
     <name><![CDATA[caiiiac]]></name>
@@ -43,12 +43,17 @@ $ rake preview #本地生成浏览 localhost:4000
 
 <h2>安装Octopress过程</h2>
 
-<p>安装Octopress主要需要两个东西
-* <code>git</code>
-* <code>ruby</code></p>
+<p>安装Octopress主要需要两个东西</p>
 
-<p>git:mac上都默认安装
-ruby:mac默认安装.不过按官方要求是需要1.9.3的版本</p>
+<ul>
+<li><p><code>git</code></p></li>
+<li><p><code>ruby</code></p></li>
+</ul>
+
+
+<p>git:mac上都默认安装</p>
+
+<p>ruby:mac默认安装.不过按官方要求是需要1.9.3的版本</p>
 
 <p><strong>1.安装Homebrew</strong></p>
 
@@ -71,7 +76,7 @@ rbenv rehash
 
 <p>使用<code>ruby --version</code>命令查看版本号</p>
 
-<p><strong>安装octopress</strong></p>
+<p><strong>开始安装octopress</strong></p>
 
 <pre><code>$ git clone git://github.com/imathis/octopress.git octopress
 $ cd octopress
