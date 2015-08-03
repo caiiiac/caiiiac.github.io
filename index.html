@@ -20,8 +20,8 @@ $ rake new_post['title'] 生成的文件在~/source/_posts目录下 编辑文章
 8
 9
 10
-$ rake generate $ git add .
-$ git commit -m " &hellip;">
+$ rake generate //生成博客 $ git add .
+$ git commit &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -121,19 +121,56 @@ $ git commit -m " &hellip;">
 <span class='line-number'>8</span>
 <span class='line-number'>9</span>
 <span class='line-number'>10</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>$ rake generate
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ rake generate     //生成博客
 </span><span class='line'>
 </span><span class='line'>$ git add .
 </span><span class='line'>$ git commit -m "comment" 
 </span><span class='line'>$ git push origin source
 </span><span class='line'>
-</span><span class='line'>$ rake deploy
+</span><span class='line'>$ rake deploy       //部署
 </span><span class='line'>
 </span><span class='line'>
 </span><span class='line'>$ rake preview #本地生成浏览 localhost:4000</span></code></pre></td></tr></table></div></figure>
 
 
 <h2>安装Octopress过程</h2>
+
+<p>安装Octopress主要需要两个东西
+* <code>git</code>
+* <code>ruby</code></p>
+
+<p>git:mac上都默认安装
+ruby:mac默认安装.不过按官方要求是需要1.9.3的版本</p>
+
+<p><strong>1.安装Homebrew</strong></p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"</span></code></pre></td></tr></table></div></figure>
+
+
+<p><strong>2.安装Rbenv</strong></p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>brew update
+</span><span class='line'>brew install rbenv
+</span><span class='line'>brew install ruby-build</span></code></pre></td></tr></table></div></figure>
+
+
+<p><strong>3.安装低版本ruby</strong></p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>rbenv install 1.9.3-p125
+</span><span class='line'>rbenv local 1.9.3-p125
+</span><span class='line'>rbenv rehash</span></code></pre></td></tr></table></div></figure>
+
+
+<p>使用<code>ruby --version</code>命令查看版本号</p>
+
+<p><strong>安装octopress</strong></p>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -148,16 +185,16 @@ $ git commit -m " &hellip;">
 </pre></td><td class='code'><pre><code class=''><span class='line'>$ git clone git://github.com/imathis/octopress.git octopress
 </span><span class='line'>$ cd octopress
 </span><span class='line'>
-</span><span class='line'>#安装依赖
+</span><span class='line'>**安装依赖**
 </span><span class='line'>$ gem install bundler
 </span><span class='line'>$ rbenv rehash
 </span><span class='line'>$ bundle install
 </span><span class='line'>
-</span><span class='line'>#安装octopress默认主题
+</span><span class='line'>**安装octopress默认主题**
 </span><span class='line'>$ rake install</span></code></pre></td></tr></table></div></figure>
 
 
-<h2>设置github和Octopress的关联</h2>
+<p><strong>设置github和Octopress的关联</strong></p>
 
 <p>第一步要做的是去github创建一个<code>username.github.io</code>的repo
 运行如下命令,按照提示完成关联</p>
@@ -166,7 +203,7 @@ $ git commit -m " &hellip;">
 </pre></td><td class='code'><pre><code class=''><span class='line'>$ rake setup_github_pages</span></code></pre></td></tr></table></div></figure>
 
 
-<h2>如果github没有添加SSH keys</h2>
+<p><strong>如果github没有添加SSH keys</strong></p>
 
 <p>首先创建<strong>SSH keys</strong>,终端敲入:<code>ssh-keygen</code>,根据系统提示进行设置.</p>
 
