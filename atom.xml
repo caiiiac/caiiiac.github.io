@@ -4,7 +4,7 @@
   <title><![CDATA[The scarecrow's blog]]></title>
   <link href="http://caiiiac.github.io/atom.xml" rel="self"/>
   <link href="http://caiiiac.github.io/"/>
-  <updated>2015-08-03T10:17:27+08:00</updated>
+  <updated>2015-08-06T14:29:17+08:00</updated>
   <id>http://caiiiac.github.io/</id>
   <author>
     <name><![CDATA[caiiiac]]></name>
@@ -12,6 +12,32 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[App所需图片尺寸汇总]]></title>
+    <link href="http://caiiiac.github.io/blog/2015/08/06/appsuo-xu-tu-pian-chi-cun-hui-zong/"/>
+    <updated>2015-08-06T13:40:22+08:00</updated>
+    <id>http://caiiiac.github.io/blog/2015/08/06/appsuo-xu-tu-pian-chi-cun-hui-zong</id>
+    <content type="html"><![CDATA[<h3>5s.6.6plus 屏幕尺寸</h3>
+
+<p>屏幕大小尺寸,也就是app启动图片的尺寸大小,取下图中的<code>像素分辨率</code></p>
+
+<p><img src="http://caiiiac.github.io/imagesWithBlog/appPx-4-5-6.png" alt="app所有尺寸" /></p>
+
+<h3>app所有图标大小</h3>
+
+<p>图标大小计算方式如iPhone 29pt所示:</p>
+
+<ul>
+<li>1x: 29pt * 1</li>
+<li>2X: 29pt * 2</li>
+<li>3x: 29pt * 3</li>
+</ul>
+
+
+<p><img src="http://caiiiac.github.io/imagesWithBlog/7DBF2E52-92DB-4F21-9EBE-4661C78194F6.jpeg" alt="图标" /></p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Octopress写博客命令及安装步骤]]></title>

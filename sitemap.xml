@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>http://caiiiac.github.io/blog/2015/08/06/appsuo-xu-tu-pian-chi-cun-hui-zong/</loc>
+    <lastmod>2015-08-06T13:40:22+08:00</lastmod>
+  </url>
+  <url>
     <loc>http://caiiiac.github.io/blog/2015/07/31/octopressxie-bo-ke-ming-ling-ji-an-zhuang-bu-zou/</loc>
     <lastmod>2015-07-31T18:20:22+08:00</lastmod>
   </url>
@@ -19,5 +23,8 @@
   </url>
   <url>
     <loc>http://caiiiac.github.io/blog/categories/ming-ling/</loc>
+  </url>
+  <url>
+    <loc>http://caiiiac.github.io/blog/categories/app/</loc>
   </url>
 </urlset>
