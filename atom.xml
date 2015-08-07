@@ -4,7 +4,7 @@
   <title><![CDATA[The scarecrow's blog]]></title>
   <link href="http://caiiiac.github.io/atom.xml" rel="self"/>
   <link href="http://caiiiac.github.io/"/>
-  <updated>2015-08-07T15:32:06+08:00</updated>
+  <updated>2015-08-07T16:21:47+08:00</updated>
   <id>http://caiiiac.github.io/</id>
   <author>
     <name><![CDATA[caiiiac]]></name>
@@ -12,6 +12,120 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[常用宏汇总]]></title>
+    <link href="http://caiiiac.github.io/blog/2015/08/07/chang-yong-hong-hui-zong/"/>
+    <updated>2015-08-07T15:54:02+08:00</updated>
+    <id>http://caiiiac.github.io/blog/2015/08/07/chang-yong-hong-hui-zong</id>
+    <content type="html"><![CDATA[<p>NSString
+以@方式生成的字符串，会作为字符串常量，在程序过程中，会一直存在，占用着内存。</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>#define STR(str) [NSString stringWithCString:(str) encoding:NSUTF8StringEncoding]
+</span><span class='line'>
+</span><span class='line'>#define STR(str)[[NSString alloc] initWithUTF8String:str];</span></code></pre></td></tr></table></div></figure>
+
+
+<p>IOS7判断</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>#define IOS7 [[[UIDevice currentDevice]systemVersion] floatValue]&gt;=7.0</span></code></pre></td></tr></table></div></figure>
+
+
+<p>屏幕宽高</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>#define kScreenWidth [[UIScreen mainScreen] bounds].size.width
+</span><span class='line'>#define kScreenHeight [[UIScreen mainScreen] bounds].size.height</span></code></pre></td></tr></table></div></figure>
+
+
+<p>颜色</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>//RGB
+</span><span class='line'>#define RGBA(R, G, B, A) [UIColor colorWithRed:R/255.0f green:G/255.0f blue:B/255.0f alpha:A]
+</span><span class='line'>
+</span><span class='line'>//（16进制-&gt;10进制）  
+</span><span class='line'>#define UIColorFromRGB(rgbValue) [UIColor colorWithRed:((float)((rgbValue & 0xFF0000) &gt;&gt; 16))/255.0 green:((float)((rgbValue & 0xFF00) &gt;&gt; 8))/255.0 blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]  
+</span><span class='line'>
+</span><span class='line'>//透明色
+</span><span class='line'>#define CLEARCOLOR [UIColor clearColor] </span></code></pre></td></tr></table></div></figure>
+
+
+<p>图片</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>//读取本地图片 
+</span><span class='line'>#define LOADIMAGE(file,type) [UIImage imageWithContentsOfFile:[[NSBundle mainBundle]pathForResource:file ofType:type]]  
+</span><span class='line'>
+</span><span class='line'>//定义UIImage对象 
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h1>define IMAGE(A) [UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:A ofType:nil]]</h1>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>
+</span><span class='line'>weakSelf
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h1>define WS(weakSelf)  <strong>weak </strong>typeof(&amp;*self)weakSelf = self;</h1>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>
+</span><span class='line'>重写NSLog,Debug模式下打印日志和当前行数  
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h1>if DEBUG</h1>
+
+<h1>define NSLog(FORMAT, &hellip;) fprintf(stderr,&ldquo;\nfunction:%s line:%d content:%s\n&rdquo;, <strong>FUNCTION</strong>, <strong>LINE</strong>, [[NSString stringWithFormat:FORMAT, ##<strong>VA_ARGS</strong>] UTF8String]);</h1>
+
+<h1>else</h1>
+
+<h1>define NSLog(FORMAT, &hellip;) nil</h1>
+
+<h1>endif</h1>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>
+</span><span class='line'>判断是真机还是模拟器 
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h1>if TARGET_OS_IPHONE</h1>
+
+<p>//iPhone Device</p>
+
+<h1>endif</h1>
+
+<h1>if TARGET_IPHONE_SIMULATOR</h1>
+
+<p>//iPhone Simulator</p>
+
+<h1>endif</h1>
+
+<p>```</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[利用JavaScript改变webView中图片的大小]]></title>

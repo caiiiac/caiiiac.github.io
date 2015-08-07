@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Ios | The scarecrow's blog]]></title>
+  <link href="http://caiiiac.github.io/blog/categories/ios/atom.xml" rel="self"/>
+  <link href="http://caiiiac.github.io/"/>
+  <updated>2015-08-07T16:21:47+08:00</updated>
+  <id>http://caiiiac.github.io/</id>
+  <author>
+    <name><![CDATA[caiiiac]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[常用宏汇总]]></title>
+    <link href="http://caiiiac.github.io/blog/2015/08/07/chang-yong-hong-hui-zong/"/>
+    <updated>2015-08-07T15:54:02+08:00</updated>
+    <id>http://caiiiac.github.io/blog/2015/08/07/chang-yong-hong-hui-zong</id>
+    <content type="html"><![CDATA[<p>NSString
+以@方式生成的字符串，会作为字符串常量，在程序过程中，会一直存在，占用着内存。</p>
+
+<pre><code>#define STR(str) [NSString stringWithCString:(str) encoding:NSUTF8StringEncoding]
+
+#define STR(str)[[NSString alloc] initWithUTF8String:str];
+</code></pre>
+
+<p>IOS7判断</p>
+
+<pre><code>#define IOS7 [[[UIDevice currentDevice]systemVersion] floatValue]&gt;=7.0
+</code></pre>
+
+<p>屏幕宽高</p>
+
+<pre><code>#define kScreenWidth [[UIScreen mainScreen] bounds].size.width
+#define kScreenHeight [[UIScreen mainScreen] bounds].size.height
+</code></pre>
+
+<p>颜色</p>
+
+<pre><code>//RGB
+#define RGBA(R, G, B, A) [UIColor colorWithRed:R/255.0f green:G/255.0f blue:B/255.0f alpha:A]
+
+//（16进制-&gt;10进制）  
+#define UIColorFromRGB(rgbValue) [UIColor colorWithRed:((float)((rgbValue &amp; 0xFF0000) &gt;&gt; 16))/255.0 green:((float)((rgbValue &amp; 0xFF00) &gt;&gt; 8))/255.0 blue:((float)(rgbValue &amp; 0xFF))/255.0 alpha:1.0]  
+
+//透明色
+#define CLEARCOLOR [UIColor clearColor] 
+</code></pre>
+
+<p>图片</p>
+
+<pre><code>//读取本地图片 
+#define LOADIMAGE(file,type) [UIImage imageWithContentsOfFile:[[NSBundle mainBundle]pathForResource:file ofType:type]]  
+
+//定义UIImage对象 
+</code></pre>
+
+<h1>define IMAGE(A) [UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:A ofType:nil]]</h1>
+
+<pre><code>
+weakSelf
+</code></pre>
+
+<h1>define WS(weakSelf)  <strong>weak </strong>typeof(&amp;*self)weakSelf = self;</h1>
+
+<pre><code>
+重写NSLog,Debug模式下打印日志和当前行数  
+</code></pre>
+
+<h1>if DEBUG</h1>
+
+<h1>define NSLog(FORMAT, &hellip;) fprintf(stderr,&ldquo;\nfunction:%s line:%d content:%s\n&rdquo;, <strong>FUNCTION</strong>, <strong>LINE</strong>, [[NSString stringWithFormat:FORMAT, ##<strong>VA_ARGS</strong>] UTF8String]);</h1>
+
+<h1>else</h1>
+
+<h1>define NSLog(FORMAT, &hellip;) nil</h1>
+
+<h1>endif</h1>
+
+<pre><code>
+判断是真机还是模拟器 
+</code></pre>
+
+<h1>if TARGET_OS_IPHONE</h1>
+
+<p>//iPhone Device</p>
+
+<h1>endif</h1>
+
+<h1>if TARGET_IPHONE_SIMULATOR</h1>
+
+<p>//iPhone Simulator</p>
+
+<h1>endif</h1>
+
+<p>```</p>
+]]></content>
+  </entry>
+  
+</feed>
