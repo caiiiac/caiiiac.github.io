@@ -5,7 +5,7 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>The scarecrow's blog</title>
+  <title>利用JavaScript改变webView中图片的大小 - The scarecrow's blog</title>
   <meta name="author" content="caiiiac">
 
   
@@ -18,7 +18,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://caiiiac.github.io/">
+  <link rel="canonical" href="http://caiiiac.github.io/blog/2015/08/07/li-yong-javascriptgai-bian-webviewzhong-tu-pian-de-da-xiao/">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/atom.xml" rel="alternate" title="The scarecrow's blog" type="application/atom+xml">
@@ -63,15 +63,12 @@
 </nav>
   <div id="main">
     <div id="content">
-      <div class="blog-index">
+      <div>
+<article class="hentry" role="article">
   
-  
-  
-    <article>
-      
   <header>
     
-      <h1 class="entry-title"><a href="/blog/2015/08/07/li-yong-javascriptgai-bian-webviewzhong-tu-pian-de-da-xiao/">利用JavaScript改变webView中图片的大小</a></h1>
+      <h1 class="entry-title">利用JavaScript改变webView中图片的大小</h1>
     
     
       <p class="meta">
@@ -87,7 +84,7 @@
   </header>
 
 
-  <div class="entry-content"><h2>webView中图片过大</h2>
+<div class="entry-content"><h2>webView中图片过大</h2>
 
 <p>最简单的图文混排就是用webView去实现,如果已经在html源码中添加了不同设备的适配,其中的文字就会自动换行,但是图片如果大过屏幕的宽度,html的约束就会失去效果,这样webView显示出来后图片显示不全,出现了可以左右滑动的情况.解决方式如下:</p>
 
@@ -259,326 +256,50 @@
 </span></code></pre></td></tr></table></div></figure>
 
 </div>
-  
-  
 
 
-    </article>
-  
-  
-    <article>
+  <footer>
+    <p class="meta">
       
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2015/08/06/appsuo-xu-tu-pian-chi-cun-hui-zong/">App所需图片尺寸汇总</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-<time class='entry-date' datetime='2015-08-06T13:40:22+08:00'><span class='date'><span class='date-month'>Aug</span> <span class='date-day'>6</span><span class='date-suffix'>th</span>, <span class='date-year'>2015</span></span> <span class='time'>1:40 pm</span></time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><h3>5s.6.6plus 屏幕尺寸</h3>
-
-<p>屏幕大小尺寸,也就是app启动图片的尺寸大小,取下图中的<code>像素分辨率</code></p>
-
-<p><img src="/imagesWithBlog/appPx-4-5-6.png" alt="app所有尺寸" /></p>
-
-<h3>app所有图标大小</h3>
-
-<p>图标大小计算方式如iPhone 29pt所示:</p>
-
-<blockquote><ul>
-<li>1x: 29pt * 1</li>
-<li>2X: 29pt * 2</li>
-<li>3x: 29pt * 3</li>
-</ul>
-
-
-<p>另:上架时,还需要一张1024*1024的图标</p></blockquote>
-
-<p><img src="/imagesWithBlog/7DBF2E52-92DB-4F21-9EBE-4661C78194F6.jpeg" alt="图标" /></p>
-</div>
-  
   
 
+<span class="byline author vcard">Posted by <span class="fn">caiiiac</span></span>
 
-    </article>
-  
-  
-    <article>
       
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2015/07/31/octopressxie-bo-ke-ming-ling-ji-an-zhuang-bu-zou/">Octopress写博客命令及安装步骤</a></h1>
-    
-    
-      <p class="meta">
-        
 
 
 
 
-<time class='entry-date' datetime='2015-07-31T18:20:22+08:00'><span class='date'><span class='date-month'>Jul</span> <span class='date-day'>31</span><span class='date-suffix'>st</span>, <span class='date-year'>2015</span></span> <span class='time'>6:20 pm</span></time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><h2>Octopress关于写博客的命令</h2>
-
-<p><strong>创建新文章</strong></p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>$ rake new_post['title']</span></code></pre></td></tr></table></div></figure>
-
-
-<p>生成的文件在<code>~/source/_posts</code>目录下</p>
-
-<p><strong>编辑文章</strong></p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>$ rake generate     //生成博客
-</span><span class='line'>
-</span><span class='line'>$ git add .
-</span><span class='line'>$ git commit -m "comment" 
-</span><span class='line'>$ git push origin source
-</span><span class='line'>
-</span><span class='line'>$ rake deploy       //部署
-</span><span class='line'>
-</span><span class='line'>
-</span><span class='line'>$ rake preview #本地生成浏览 localhost:4000</span></code></pre></td></tr></table></div></figure>
-
-
-<h2>安装Octopress过程</h2>
-
-<p>安装Octopress主要需要两个东西</p>
-
-<ul>
-<li><p><code>git</code></p></li>
-<li><p><code>ruby</code></p></li>
-</ul>
-
-
-<p>git:mac上都默认安装</p>
-
-<p>ruby:mac默认安装.不过按官方要求是需要1.9.3的版本</p>
-
-<p><strong>1.安装Homebrew</strong></p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"</span></code></pre></td></tr></table></div></figure>
-
-
-<p><strong>2.安装Rbenv</strong></p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>brew update
-</span><span class='line'>brew install rbenv
-</span><span class='line'>brew install ruby-build</span></code></pre></td></tr></table></div></figure>
-
-
-<p><strong>3.安装低版本ruby</strong></p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>rbenv install 1.9.3-p125
-</span><span class='line'>rbenv local 1.9.3-p125
-</span><span class='line'>rbenv rehash</span></code></pre></td></tr></table></div></figure>
-
-
-<p>使用<code>ruby --version</code>命令查看版本号</p>
-
-<p><strong>开始安装octopress</strong></p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>$ git clone git://github.com/imathis/octopress.git octopress
-</span><span class='line'>$ cd octopress
-</span><span class='line'>
-</span><span class='line'>**安装依赖**
-</span><span class='line'>$ gem install bundler
-</span><span class='line'>$ rbenv rehash
-</span><span class='line'>$ bundle install
-</span><span class='line'>
-</span><span class='line'>**安装octopress默认主题**
-</span><span class='line'>$ rake install</span></code></pre></td></tr></table></div></figure>
-
-
-<p><strong>设置github和Octopress的关联</strong></p>
-
-<p>第一步要做的是去github创建一个<code>username.github.io</code>的repo
-运行如下命令,按照提示完成关联</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>$ rake setup_github_pages</span></code></pre></td></tr></table></div></figure>
-
-
-<p><strong>如果github没有添加SSH keys</strong></p>
-
-<p>首先创建<strong>SSH keys</strong>,终端敲入:<code>ssh-keygen</code>,根据系统提示进行设置.</p>
-
-<p>生成的<strong>SSH keys</strong>保存在: <code>~/.ssh</code>拷贝生成的文件内容,将其添加至github帐号管理的SSH key中,就可以克隆github上的代码库了.</p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
+<time class='entry-date' datetime='2015-08-07T14:53:29+08:00'><span class='date'><span class='date-month'>Aug</span> <span class='date-day'>7</span><span class='date-suffix'>th</span>, <span class='date-year'>2015</span></span> <span class='time'>2:53 pm</span></time>
       
-  <header>
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/javascript/'>javascript</a>
+  
+</span>
+
+
+    </p>
     
-      <h1 class="entry-title"><a href="/blog/2015/07/30/shi-yong-gao-de-di-tu-sdkguo-cheng-zhong-de-ge-chong-keng/">使用高德地图SDK过程中的各种坑</a></h1>
+      <div class="sharing">
+  
+  
+  
+</div>
+
     
-    
-      <p class="meta">
-        
-
-
-
-
-<time class='entry-date' datetime='2015-07-30T15:36:36+08:00'><span class='date'><span class='date-month'>Jul</span> <span class='date-day'>30</span><span class='date-suffix'>th</span>, <span class='date-year'>2015</span></span> <span class='time'>3:36 pm</span></time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><h2>1. APP内调起高德地图导航</h2>
-
-<blockquote><p><strong>高德文档描写如下:</strong></p></blockquote>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>//配置导航参数
-</span><span class='line'>MANaviConfig * config = [[MANaviConfig alloc] init];
-</span><span class='line'>config.destination = view.annotation.coordinate;//终点坐标，Annotation的坐标
-</span><span class='line'>config.appScheme = [self getApplicationScheme];//返回的Scheme，需手动设置
-</span><span class='line'>config.appName = [self getApplicationName];//应用名称，需手动设置
-</span><span class='line'>config.style = MADrivingStrategyShortest;
-</span><span class='line'>//若未调起高德地图App,引导用户获取最新版本的
-</span><span class='line'>if(![MANavigation openAMapNavigation:config])
-</span><span class='line'>{
-</span><span class='line'>[MANavigation getLatestAMapApp];
-</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
-
-
-<p><strong>实际情况</strong></p>
-
-<ul>
-<li><strong>2.5.0</strong> SDK使用此方法调用导航都无任何反应  <code>[MANavigation openAMapNavigation:config] 返回为成功</code></li>
-<li><strong>2.6.0</strong> SDK查无此类</li>
-</ul>
-
-
-<p><strong>解决方法</strong></p>
-
-<ul>
-<li>更新SDK为<strong>2.6.0</strong>  <code>pod 'AMap2DMap', '~&gt; 2.6.0'</code></li>
-</ul>
-
-
-<blockquote><p><strong>代码修改如下:</strong></p></blockquote>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>//配置导航参数
-</span><span class='line'>MANaviConfig * config = [[MANaviConfig alloc] init];
-</span><span class='line'>config.destination = _parkingCoordinate;         //终点坐标，Annotation的坐标    
-</span><span class='line'>config.appScheme = [self getApplicationScheme];  //返回的Scheme，需手动设置
-</span><span class='line'>config.appName = [self getApplicationName];      //应用名称，需手动设置
-</span><span class='line'>config.strategy = MADrivingStrategyShortest;
-</span><span class='line'>
-</span><span class='line'>//若未调起高德地图App,引导用户获取最新版本的
-</span><span class='line'>if(![MAMapURLSearch openAMapNavigation:config])
-</span><span class='line'>{
-</span><span class='line'>[MAMapURLSearch getLatestAMapApp];
-</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
-
-
-<h2>2. - (void)setZoomLevel:(double)newZoomLevel animated:(BOOL)animated; 失效</h2>
-
-<p><strong>使用情况</strong></p>
-
-<ul>
-<li><strong>2.5.0</strong> SDK使用此方法设置一次,永久有效</li>
-<li><strong>2.6.0</strong> SDK使用此方法设置无效,需要延时设置</li>
-</ul>
-
-
-<p><strong>解决方法,代码如下</strong></p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-</span><span class='line'>[self.mapView setZoomLevel:14.f animated:YES];
-</span><span class='line'>});</span></code></pre></td></tr></table></div></figure>
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2015/08/06/appsuo-xu-tu-pian-chi-cun-hui-zong/" title="Previous Post: app所需图片尺寸汇总">&laquo; app所需图片尺寸汇总</a>
+      
+      
+    </p>
+  </footer>
+</article>
 
 </div>
-  
-  
 
-
-    </article>
-  
-  <div class="pagination">
-    
-    <a href="/blog/archives">Blog Archives</a>
-    
-  </div>
-</div>
 <aside class="sidebar">
   
     <section>
@@ -610,6 +331,7 @@
 
   
 </aside>
+
 
     </div>
   </div>

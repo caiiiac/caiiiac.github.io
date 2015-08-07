@@ -4,7 +4,7 @@
   <title><![CDATA[The scarecrow's blog]]></title>
   <link href="http://caiiiac.github.io/atom.xml" rel="self"/>
   <link href="http://caiiiac.github.io/"/>
-  <updated>2015-08-06T14:29:17+08:00</updated>
+  <updated>2015-08-07T15:32:06+08:00</updated>
   <id>http://caiiiac.github.io/</id>
   <author>
     <name><![CDATA[caiiiac]]></name>
@@ -12,6 +12,185 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[利用JavaScript改变webView中图片的大小]]></title>
+    <link href="http://caiiiac.github.io/blog/2015/08/07/li-yong-javascriptgai-bian-webviewzhong-tu-pian-de-da-xiao/"/>
+    <updated>2015-08-07T14:53:29+08:00</updated>
+    <id>http://caiiiac.github.io/blog/2015/08/07/li-yong-javascriptgai-bian-webviewzhong-tu-pian-de-da-xiao</id>
+    <content type="html"><![CDATA[<h2>webView中图片过大</h2>
+
+<p>最简单的图文混排就是用webView去实现,如果已经在html源码中添加了不同设备的适配,其中的文字就会自动换行,但是图片如果大过屏幕的宽度,html的约束就会失去效果,这样webView显示出来后图片显示不全,出现了可以左右滑动的情况.解决方式如下:</p>
+
+<blockquote><p> 这种情况一般 <code>webView.scalesPageToFit = YES</code> 也无效</p></blockquote>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>- (void)webViewDidFinishLoad:(UIWebView *)webView
+</span><span class='line'>{
+</span><span class='line'>    //拦截网页图片  并修改图片大小
+</span><span class='line'>    [webView stringByEvaluatingJavaScriptFromString:
+</span><span class='line'>    @"var script = document.createElement('script');"
+</span><span class='line'>    "script.type = 'text/javascript';"
+</span><span class='line'>    "script.text = \"function ResizeImages() { "
+</span><span class='line'>    "var myimg,oldwidth,oldheight;"
+</span><span class='line'>    "var maxwidth=300;" //缩放系数
+</span><span class='line'>    "for(var i=0;i &lt;document.images.length;i++){"
+</span><span class='line'>    "myimg = document.images[i];"
+</span><span class='line'>    "oldwidth = myimg.width;"
+</span><span class='line'>    "oldheight = myimg.height;"
+</span><span class='line'>    "if(myimg.width &gt; maxwidth){"
+</span><span class='line'>    "myimg.style.width = maxwidth+'px';"
+</span><span class='line'>    "myimg.style.height = (oldheight * (maxwidth/oldwidth))+'px';"
+</span><span class='line'>    "}"
+</span><span class='line'>    "}"
+</span><span class='line'>    "}\";"
+</span><span class='line'>    "document.getElementsByTagName('head')[0].appendChild(script);"];
+</span><span class='line'>
+</span><span class='line'>    [webView stringByEvaluatingJavaScriptFromString:@"ResizeImages();"];
+</span><span class='line'>
+</span><span class='line'>}
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>禁用webView中点击or长按响应</h2>
+
+<p>在webView中长按就会弹出拷贝等功能的弹窗,如果图片或文字添加了超链接还能进行跳转.通常我们看别人的app里的图文控件是不是webView,用这种方式就可以看出来.
+如果你不想让别人看出来你这是webView,添加以下代码</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>- (void)webViewDidFinishLoad:(UIWebView *)webView
+</span><span class='line'>{
+</span><span class='line'>    ...
+</span><span class='line'>    //禁用webView长按弹窗
+</span><span class='line'>    [webView stringByEvaluatingJavaScriptFromString:@"document.documentElement.style.webkitUserSelect='none';"];
+</span><span class='line'>
+</span><span class='line'>    [webView stringByEvaluatingJavaScriptFromString:@"document.documentElement.style.webkitTouchCallout='none';"];
+</span><span class='line'>
+</span><span class='line'>}
+</span><span class='line'>//该方法的返回值用以控制是否允许加载目标链接页面的内容，返回YES将直接加载内容，NO则反之。
+</span><span class='line'>- (BOOL) webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType
+</span><span class='line'>{
+</span><span class='line'>    //用户触击了一个链接
+</span><span class='line'>    if (navigationType == UIWebViewNavigationTypeLinkClicked) {
+</span><span class='line'>      return NO;
+</span><span class='line'>    }
+</span><span class='line'>
+</span><span class='line'>    return YES;
+</span><span class='line'>}
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>UIWebViewNavigationType枚举:</p>
+
+<ul>
+<li>UIWebViewNavigationTypeLinkClicked，      用户触击了一个链接。</li>
+<li>UIWebViewNavigationTypeFormSubmitted，    用户提交了一个表单。</li>
+<li>UIWebViewNavigationTypeBackForward，      用户触击前进或返回按钮。</li>
+<li>UIWebViewNavigationTypeReload，           用户触击重新加载的按钮。</li>
+<li>UIWebViewNavigationTypeFormResubmitted，  用户重复提交表单</li>
+<li>UIWebViewNavigationTypeOther，            发生其它行为。</li>
+</ul>
+
+
+<h2>webView链接失效的时候出现 404 页面</h2>
+
+<p>如果不想在网页加载失败的时候出现404扫兴,就添加代码吧!</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>- (BOOL) webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType
+</span><span class='line'>{
+</span><span class='line'>    static BOOL isRequestWeb = YES;
+</span><span class='line'>
+</span><span class='line'>    if (isRequestWeb) {
+</span><span class='line'>        NSHTTPURLResponse *response = nil;
+</span><span class='line'>
+</span><span class='line'>        NSData *data = [NSURLConnection sendSynchronousRequest:request   returningResponse:&response error:nil];
+</span><span class='line'>
+</span><span class='line'>        if (response.statusCode == 404) {
+</span><span class='line'>            // code for 404
+</span><span class='line'>            return NO;
+</span><span class='line'>        } else if (response.statusCode == 403) {
+</span><span class='line'>            // code for 403
+</span><span class='line'>            return NO;
+</span><span class='line'>        }
+</span><span class='line'>
+</span><span class='line'>        [webView loadData:data MIMEType:@"text/html" textEncodingName:nil baseURL:[request URL]];
+</span><span class='line'>
+</span><span class='line'>        isRequestWeb = NO;
+</span><span class='line'>        return NO;
+</span><span class='line'>    }
+</span><span class='line'>
+</span><span class='line'>    return YES;
+</span><span class='line'>}
+</span></code></pre></td></tr></table></div></figure>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[App所需图片尺寸汇总]]></title>
@@ -28,12 +207,14 @@
 
 <p>图标大小计算方式如iPhone 29pt所示:</p>
 
-<ul>
+<blockquote><ul>
 <li>1x: 29pt * 1</li>
 <li>2X: 29pt * 2</li>
 <li>3x: 29pt * 3</li>
 </ul>
 
+
+<p>另:上架时,还需要一张1024*1024的图标</p></blockquote>
 
 <p><img src="http://caiiiac.github.io/imagesWithBlog/7DBF2E52-92DB-4F21-9EBE-4661C78194F6.jpeg" alt="图标" /></p>
 ]]></content>

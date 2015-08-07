@@ -4,7 +4,7 @@
   <title><![CDATA[Category: App | The scarecrow's blog]]></title>
   <link href="http://caiiiac.github.io/blog/categories/app/atom.xml" rel="self"/>
   <link href="http://caiiiac.github.io/"/>
-  <updated>2015-08-06T14:29:17+08:00</updated>
+  <updated>2015-08-07T15:32:06+08:00</updated>
   <id>http://caiiiac.github.io/</id>
   <author>
     <name><![CDATA[caiiiac]]></name>
@@ -28,12 +28,14 @@
 
 <p>图标大小计算方式如iPhone 29pt所示:</p>
 
-<ul>
+<blockquote><ul>
 <li>1x: 29pt * 1</li>
 <li>2X: 29pt * 2</li>
 <li>3x: 29pt * 3</li>
 </ul>
 
+
+<p>另:上架时,还需要一张1024*1024的图标</p></blockquote>
 
 <p><img src="/imagesWithBlog/7DBF2E52-92DB-4F21-9EBE-4661C78194F6.jpeg" alt="图标" /></p>
 ]]></content>
