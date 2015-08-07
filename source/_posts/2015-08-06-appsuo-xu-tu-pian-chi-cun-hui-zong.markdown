@@ -18,8 +18,10 @@ categories: app
 
 图标大小计算方式如iPhone 29pt所示:
 
-  * 1x: 29pt * 1
-  * 2X: 29pt * 2
-  * 3x: 29pt * 3
+> * 1x: 29pt * 1
+> * 2X: 29pt * 2
+> * 3x: 29pt * 3
+
+> 另:上架时,还需要一张1024*1024的图标
 
 ![图标](/imagesWithBlog/7DBF2E52-92DB-4F21-9EBE-4661C78194F6.jpeg)
