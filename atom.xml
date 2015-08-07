@@ -4,7 +4,7 @@
   <title><![CDATA[The scarecrow's blog]]></title>
   <link href="http://caiiiac.github.io/atom.xml" rel="self"/>
   <link href="http://caiiiac.github.io/"/>
-  <updated>2015-08-07T16:21:47+08:00</updated>
+  <updated>2015-08-07T17:42:15+08:00</updated>
   <id>http://caiiiac.github.io/</id>
   <author>
     <name><![CDATA[caiiiac]]></name>
@@ -14,12 +14,123 @@
 
   
   <entry>
+    <title type="html"><![CDATA[NSCalendar &amp; NSDate​Components]]></title>
+    <link href="http://caiiiac.github.io/blog/2015/08/07/nscalendar-and-nsdatecomponents/"/>
+    <updated>2015-08-07T17:01:59+08:00</updated>
+    <id>http://caiiiac.github.io/blog/2015/08/07/nscalendar-and-nsdatecomponents</id>
+    <content type="html"><![CDATA[<ul>
+<li>NSDate只是一个绝对的时间</li>
+<li>NSCalendar对世界上现存的常用的历法进行了封装,既提供了不同历法的时间信息,又支持日历的计算</li>
+<li>NSDateComponents是一个容器,详细包含了年月日时分等信息.将时间表示成适合阅读和使用的方式</li>
+<li>NSDateComponents可以快速而简单地获取某个时间点对应的年, 月,日,时,分,秒,周等信息.例如:三个月，2年，7天，15分钟，60秒等等</li>
+<li>NSDateComponents的返回值day, week, weekday, month, year 都是从1开始</li>
+</ul>
+
+
+<p><strong> 当前时间的 年 月 日 时 分</strong></p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>NSDate * date = [NSDate date];//当前时间
+</span><span class='line'>NSCalendar * calendar = [NSCalendar currentCalendar];//当前用户的calendar
+</span><span class='line'>NSDateComponents * components = [calendar components:NSCalendarUnitMonth | NSCalendarUnitDay | NSCalendarUnitHour | NSCalendarUnitMinute fromDate:date];
+</span><span class='line'>NSLog(@"%ld月%ld日%ld时%ld分" ,(long)components.month,(long)components.day,(long)components.hour,(long)components.minute);</span></code></pre></td></tr></table></div></figure>
+
+
+<p><strong>今天是今年的第几周</strong></p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>NSCalendar * calendar = [NSCalendar currentCalendar];
+</span><span class='line'>NSDate * currentDate = [NSDate date];
+</span><span class='line'>NSInteger week = [calendar ordinalityOfUnit:NSCalendarUnitWeekday inUnit:NSCalendarUnitYear forDate:currentDate];
+</span><span class='line'>NSLog(@"今天是今年的第%ld周",week);</span></code></pre></td></tr></table></div></figure>
+
+
+<p><strong>指定年 月 日 时 分 秒 得到 NSDate</strong></p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>NSDateComponents * components = [[NSDateComponents alloc] init];
+</span><span class='line'>components.year = 2015;
+</span><span class='line'>components.month = 8;
+</span><span class='line'>components.day = 7;
+</span><span class='line'>components.hour = 11;
+</span><span class='line'>components.minute = 11;
+</span><span class='line'>components.second = 11;
+</span><span class='line'>NSCalendar * calendar = [NSCalendar currentCalendar];
+</span><span class='line'>NSDate * date = [calendar dateFromComponents:components];
+</span><span class='line'>
+</span><span class='line'>NSDateFormatter * formatter = [[NSDateFormatter alloc] init];
+</span><span class='line'>formatter.dateFormat = @"yyyy年MM月dd日hh时mm分ss秒";
+</span><span class='line'>NSString * time = [formatter stringFromDate:date];
+</span><span class='line'>NSLog(@"%@",time);</span></code></pre></td></tr></table></div></figure>
+
+
+<p><strong>7天12小时之后</strong></p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>NSDateComponents * components = [[NSDateComponents alloc] init];
+</span><span class='line'>
+</span><span class='line'>components.day = 7;
+</span><span class='line'>components.hour = 12;
+</span><span class='line'>NSCalendar * calendar = [NSCalendar currentCalendar];
+</span><span class='line'>NSDate * currentDate = [NSDate date];
+</span><span class='line'>NSDate * nextData = [calendar dateByAddingComponents:components toDate:currentDate options:NSCalendarMatchStrictly];
+</span><span class='line'>NSDateFormatter * formatter = [[NSDateFormatter alloc] init];
+</span><span class='line'>
+</span><span class='line'>formatter.dateFormat = @"yyyy年MM月dd日hh时mm分ss秒";
+</span><span class='line'>NSString * after = [formatter stringFromDate:nextData];
+</span><span class='line'>NSLog(@"7天12小时之后的时间:%@",after);</span></code></pre></td></tr></table></div></figure>
+
+
+<p><strong>这个月有几天</strong></p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>NSCalendar * calendar = [NSCalendar currentCalendar];
+</span><span class='line'>NSDate * currentDate = [NSDate date];
+</span><span class='line'>NSRange range = [calendar rangeOfUnit:NSCalendarUnitDay inUnit:NSCalendarUnitMonth forDate:currentDate];</span></code></pre></td></tr></table></div></figure>
+
+]]></content>
+  </entry>
+  
+  <entry>
     <title type="html"><![CDATA[常用宏汇总]]></title>
     <link href="http://caiiiac.github.io/blog/2015/08/07/chang-yong-hong-hui-zong/"/>
     <updated>2015-08-07T15:54:02+08:00</updated>
     <id>http://caiiiac.github.io/blog/2015/08/07/chang-yong-hong-hui-zong</id>
-    <content type="html"><![CDATA[<p>NSString
-以@方式生成的字符串，会作为字符串常量，在程序过程中，会一直存在，占用着内存。</p>
+    <content type="html"><![CDATA[<p>NSString</p>
+
+<p>以@方式生成的字符串，会作为字符串常量，在程序过程中，会一直存在，占用着内存。</p>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -69,61 +180,51 @@
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
+<span class='line-number'>5</span>
 </pre></td><td class='code'><pre><code class=''><span class='line'>//读取本地图片 
 </span><span class='line'>#define LOADIMAGE(file,type) [UIImage imageWithContentsOfFile:[[NSBundle mainBundle]pathForResource:file ofType:type]]  
 </span><span class='line'>
 </span><span class='line'>//定义UIImage对象 
-</span></code></pre></td></tr></table></div></figure>
+</span><span class='line'>#define IMAGE(A) [UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:A ofType:nil]]  </span></code></pre></td></tr></table></div></figure>
 
 
-<h1>define IMAGE(A) [UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:A ofType:nil]]</h1>
+<p>weakSelf</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>#define WS(weakSelf)  __weak __typeof(&*self)weakSelf = self;</span></code></pre></td></tr></table></div></figure>
+
+
+<p>重写NSLog,Debug模式下打印日志和当前行数</p>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>
-</span><span class='line'>weakSelf
-</span></code></pre></td></tr></table></div></figure>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>#if DEBUG  
+</span><span class='line'>#define NSLog(FORMAT, ...) fprintf(stderr,"\nfunction:%s line:%d content:%s\n", __FUNCTION__, __LINE__, [[NSString stringWithFormat:FORMAT, ##__VA_ARGS__] UTF8String]);  
+</span><span class='line'>#else  
+</span><span class='line'>#define NSLog(FORMAT, ...) nil  
+</span><span class='line'>#endif </span></code></pre></td></tr></table></div></figure>
 
 
-<h1>define WS(weakSelf)  <strong>weak </strong>typeof(&amp;*self)weakSelf = self;</h1>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>
-</span><span class='line'>重写NSLog,Debug模式下打印日志和当前行数  
-</span></code></pre></td></tr></table></div></figure>
-
-
-<h1>if DEBUG</h1>
-
-<h1>define NSLog(FORMAT, &hellip;) fprintf(stderr,&ldquo;\nfunction:%s line:%d content:%s\n&rdquo;, <strong>FUNCTION</strong>, <strong>LINE</strong>, [[NSString stringWithFormat:FORMAT, ##<strong>VA_ARGS</strong>] UTF8String]);</h1>
-
-<h1>else</h1>
-
-<h1>define NSLog(FORMAT, &hellip;) nil</h1>
-
-<h1>endif</h1>
+<p>判断是真机还是模拟器</p>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>
-</span><span class='line'>判断是真机还是模拟器 
-</span></code></pre></td></tr></table></div></figure>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>#if TARGET_OS_IPHONE  
+</span><span class='line'>//iPhone Device  
+</span><span class='line'>#endif  
+</span><span class='line'>
+</span><span class='line'>#if TARGET_IPHONE_SIMULATOR  
+</span><span class='line'>//iPhone Simulator  
+</span><span class='line'>#endif  </span></code></pre></td></tr></table></div></figure>
 
-
-<h1>if TARGET_OS_IPHONE</h1>
-
-<p>//iPhone Device</p>
-
-<h1>endif</h1>
-
-<h1>if TARGET_IPHONE_SIMULATOR</h1>
-
-<p>//iPhone Simulator</p>
-
-<h1>endif</h1>
-
-<p>```</p>
 ]]></content>
   </entry>
   
