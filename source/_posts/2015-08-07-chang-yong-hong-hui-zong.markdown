@@ -8,6 +8,7 @@ categories: ios
 
 
 NSString 
+
 以@方式生成的字符串，会作为字符串常量，在程序过程中，会一直存在，占用着内存。
 
 ```
@@ -50,8 +51,6 @@ IOS7判断
 #define LOADIMAGE(file,type) [UIImage imageWithContentsOfFile:[[NSBundle mainBundle]pathForResource:file ofType:type]]  
 
 //定义UIImage对象 
-
-```
 #define IMAGE(A) [UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:A ofType:nil]]  
 ```
 
