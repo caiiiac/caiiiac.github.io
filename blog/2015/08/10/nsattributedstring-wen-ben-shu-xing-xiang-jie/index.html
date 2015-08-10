@@ -1,0 +1,571 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>NSAttributedString 文本属性详解 - The scarecrow's blog</title>
+  <meta name="author" content="caiiiac">
+
+  
+  <meta name="description" content="NSAttributedString包含的所有Key 1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+NSFontAttributeName; //字体，value是UIFont对象
+NSParagraphStyleAttributeName &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://caiiiac.github.io/blog/2015/08/10/nsattributedstring-wen-ben-shu-xing-xiang-jie/">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="The scarecrow's blog" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="/javascripts/libs/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="//fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="//fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">The scarecrow's blog</a></h1>
+  
+    <h2>No heart, No lung!</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="https://www.google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="sitesearch" value="caiiiac.github.io">
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">NSAttributedString 文本属性详解</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2015-08-10T14:03:23+08:00'><span class='date'><span class='date-month'>Aug</span> <span class='date-day'>10</span><span class='date-suffix'>th</span>, <span class='date-year'>2015</span></span> <span class='time'>2:03 pm</span></time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><h2>NSAttributedString包含的所有Key</h2>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>NSFontAttributeName;                  //字体，value是UIFont对象
+</span><span class='line'>NSParagraphStyleAttributeName;        //绘图的风格（居中，换行模式，间距等诸多风格），value是NSParagraphStyle对象
+</span><span class='line'>NSForegroundColorAttributeName;       // 文字颜色，value是UIFont对象
+</span><span class='line'>NSBackgroundColorAttributeName;       // 背景色，value是UIFont
+</span><span class='line'>NSLigatureAttributeName;              //  字符连体，value是NSNumber
+</span><span class='line'>NSKernAttributeName;                  // 字符间隔
+</span><span class='line'>NSStrikethroughStyleAttributeName;    //删除线，value是NSNumber
+</span><span class='line'>NSUnderlineStyleAttributeName;        //下划线，value是NSNumber
+</span><span class='line'>NSStrokeColorAttributeName;           //描绘边颜色，value是UIColor
+</span><span class='line'>NSStrokeWidthAttributeName;           //描边宽度，value是NSNumber
+</span><span class='line'>NSShadowAttributeName;                //阴影，value是NSShadow对象
+</span><span class='line'>NSTextEffectAttributeName;            //文字效果，value是NSString
+</span><span class='line'>NSAttachmentAttributeName;            //附属，value是NSTextAttachment 对象
+</span><span class='line'>NSLinkAttributeName;                  //链接，value是NSURL or NSString
+</span><span class='line'>NSBaselineOffsetAttributeName;        //基础偏移量，value是NSNumber对象
+</span><span class='line'>NSUnderlineColorAttributeName;        //下划线颜色，value是UIColor对象
+</span><span class='line'>NSStrikethroughColorAttributeName;    //删除线颜色，value是UIColor
+</span><span class='line'>NSObliquenessAttributeName;           //字体倾斜
+</span><span class='line'>NSExpansionAttributeName;             //字体扁平化
+</span><span class='line'>NSVerticalGlyphFormAttributeName;     //垂直或者水平，value是 NSNumber，0表示水平，1垂直</span></code></pre></td></tr></table></div></figure>
+
+
+<p>第一步创建UILabel及NSMutableAttributedString的实例对象,之后的效果改变都是作用在它们上面:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width - 40, 50)];
+</span><span class='line'>label.textAlignment = NSTextAlignmentCenter;
+</span><span class='line'>label.center = self.view.center;
+</span><span class='line'>[self.view addSubview:label];
+</span><span class='line'>
+</span><span class='line'>NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc] initWithString:@"caiiiac.github.io"];
+</span><span class='line'>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p><strong>字体 颜色 背景色</strong></p>
+
+<ul>
+<li><code>NSFontAttributeName</code></li>
+<li><code>NSForegroundColorAttributeName</code></li>
+<li><code>NSBackgroundColorAttributeName</code></li>
+</ul>
+
+
+<p>效果</p>
+
+<p><img src="/imagesWithBlog/60734898-ECE5-44D4-898D-E6EF83D7651E.png" alt="字体 颜色 背景色" /></p>
+
+<p>代码</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>NSDictionary * attris = @{NSForegroundColorAttributeName:[UIColor whiteColor],
+</span><span class='line'>              NSBackgroundColorAttributeName:[UIColor grayColor],
+</span><span class='line'>              NSFontAttributeName:[UIFont boldSystemFontOfSize:30]};
+</span><span class='line'>
+</span><span class='line'>[attributedString setAttributes:attris range:NSMakeRange(0,attributedString.length)];
+</span><span class='line'>label.attributedText = attributedString;</span></code></pre></td></tr></table></div></figure>
+
+
+<p><strong>下划线</strong></p>
+
+<ul>
+<li><code>NSUnderlineStyleAttributeName</code></li>
+<li><code>NSUnderlineColorAttributeName</code></li>
+</ul>
+
+
+<p>效果</p>
+
+<p><img src="/imagesWithBlog/6F199774-62FD-4553-AC2C-F0132641DCB7.png" alt="下划线" /></p>
+
+<p>代码</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>NSDictionary * attris = @{NSFontAttributeName:[UIFont boldSystemFontOfSize:30],
+</span><span class='line'>              NSForegroundColorAttributeName:[UIColor orangeColor],                          
+</span><span class='line'>              NSUnderlineStyleAttributeName:@(NSUnderlineStyleSingle),                             
+</span><span class='line'>              NSUnderlineColorAttributeName:[UIColor blueColor],};
+</span><span class='line'>
+</span><span class='line'>[attributedString setAttributes:attris range:NSMakeRange(0,attributedString.length)];
+</span><span class='line'>label.attributedText = attributedString;</span></code></pre></td></tr></table></div></figure>
+
+
+<p><strong>描边</strong></p>
+
+<ul>
+<li><code>NSStrokeColorAttributeName</code></li>
+<li><code>NSStrokeWidthAttributeName</code></li>
+</ul>
+
+
+<p>效果</p>
+
+<p><img src="/imagesWithBlog/0C9788C6-1AB5-43E2-9C39-0605E22F2990.png" alt="下划线" /></p>
+
+<p>代码</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>NSDictionary * attris = @{NSFontAttributeName:[UIFont boldSystemFontOfSize:30],
+</span><span class='line'>              NSForegroundColorAttributeName:[UIColor whiteColor],
+</span><span class='line'>              NSStrokeColorAttributeName:[UIColor blueColor],
+</span><span class='line'>              NSStrokeWidthAttributeName:@(2)};
+</span><span class='line'>
+</span><span class='line'>[attributedString setAttributes:attris range:NSMakeRange(0,attributedString.length)];
+</span><span class='line'>label.attributedText = attributedString;</span></code></pre></td></tr></table></div></figure>
+
+
+<p><strong>阴影</strong></p>
+
+<ul>
+<li><code>NSShadowAttributeName</code></li>
+</ul>
+
+
+<p>效果</p>
+
+<p><img src="/imagesWithBlog/FC216299-3DFD-4897-9340-1BDCD9EE1C7A.png" alt="下划线" /></p>
+
+<p>代码</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>NSShadow * shadow = [[NSShadow alloc] init];
+</span><span class='line'>shadow.shadowColor = [UIColor blueColor];
+</span><span class='line'>shadow.shadowBlurRadius = 4.0;
+</span><span class='line'>shadow.shadowOffset = CGSizeMake(2.0, 2.0);
+</span><span class='line'>NSDictionary * attris = @{NSFontAttributeName:[UIFont systemFontOfSize:30],
+</span><span class='line'>              NSShadowAttributeName:shadow};
+</span><span class='line'>
+</span><span class='line'>[attributedString setAttributes:attris range:NSMakeRange(0,attributedString.length)];
+</span><span class='line'>label.attributedText = attributedString;</span></code></pre></td></tr></table></div></figure>
+
+
+<p><strong>字符间隔</strong></p>
+
+<ul>
+<li><code>NSKernAttributeName</code></li>
+</ul>
+
+
+<p>默认间隔</p>
+
+<p><img src="/imagesWithBlog/1B2B4760-01BD-44C8-90A1-41B1B101B622.png" alt="下划线" /></p>
+
+<p>间隔为5</p>
+
+<p><img src="/imagesWithBlog/D7997F03-CE7E-4689-8E2E-23C6318CE56D.png" alt="下划线" /></p>
+
+<p>代码</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>NSDictionary * attris = @{NSKernAttributeName:@(5),
+</span><span class='line'>              NSFontAttributeName:[UIFont systemFontOfSize:30]};
+</span><span class='line'>
+</span><span class='line'>[attributedString setAttributes:attris range:NSMakeRange(0,attributedString.length)];
+</span><span class='line'>label.attributedText = attributedString;</span></code></pre></td></tr></table></div></figure>
+
+
+<p><strong>字体倾斜</strong></p>
+
+<ul>
+<li><code>NSObliquenessAttributeName</code></li>
+</ul>
+
+
+<p>效果</p>
+
+<p><img src="/imagesWithBlog/A3BCEAB0-8946-4A3F-8545-A0CD624047D3.png" alt="下划线" /></p>
+
+<p>代码</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>NSDictionary * attris = @{NSObliquenessAttributeName:@(0.8),
+</span><span class='line'>              NSFontAttributeName:[UIFont systemFontOfSize:30]};
+</span><span class='line'>
+</span><span class='line'>[attributedString setAttributes:attris range:NSMakeRange(0,attributedString.length)];
+</span><span class='line'>label.attributedText = attributedString;</span></code></pre></td></tr></table></div></figure>
+
+
+<p><strong>字体扁平化</strong></p>
+
+<ul>
+<li><code>NSExpansionAttributeName</code></li>
+</ul>
+
+
+<p>效果</p>
+
+<p><img src="/imagesWithBlog/E00D97D1-F0AC-4ED3-82C5-96FA8BA19551.png" alt="下划线" /></p>
+
+<p>代码</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>NSDictionary * attris = @{NSExpansionAttributeName:@(1.0),
+</span><span class='line'>              NSFontAttributeName:[UIFont systemFontOfSize:30]};
+</span><span class='line'>
+</span><span class='line'>[attributedString setAttributes:attris range:NSMakeRange(0,attributedString.length)];
+</span><span class='line'>label.attributedText = attributedString;
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>添加图片</p>
+
+<ul>
+<li><code>NSAttachmentAttributeName</code></li>
+</ul>
+
+
+<p>效果</p>
+
+<p><img src="/imagesWithBlog/3A996070-E495-48B8-A3D1-39B217D28866.png" alt="下划线" /></p>
+
+<p>代码</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>NSTextAttachment * attach = [[NSTextAttachment alloc] init];
+</span><span class='line'>attach.image = [UIImage imageNamed:@"收藏后"];
+</span><span class='line'>attach.bounds = CGRectMake(2, -4, 20, 20);
+</span><span class='line'>NSAttributedString * imageStr = [NSAttributedString attributedStringWithAttachment:attach];
+</span><span class='line'>
+</span><span class='line'>[attributedString appendAttributedString:imageStr];
+</span><span class='line'>
+</span><span class='line'>label.attributedText = attributedString;
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>绘图风格</p>
+
+<ul>
+<li><code>NSMutableParagraphStyle</code></li>
+</ul>
+
+
+<p>效果</p>
+
+<p><img src="/imagesWithBlog/021BF7E2-1BE4-4509-B70C-95268B594D8C.png" alt="下划线" /></p>
+
+<p>代码
+自定义TextView类</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>@implementation TextView
+</span><span class='line'>
+</span><span class='line'>- (void)drawRect:(CGRect)rect {
+</span><span class='line'>// Drawing code
+</span><span class='line'>
+</span><span class='line'>    NSMutableAttributedString * attributeStr = [[NSMutableAttributedString alloc] initWithString:@"绘图风格（居中，换行模式，间距等诸多风格），value是NSParagraphStyle对象"];
+</span><span class='line'>    NSMutableParagraphStyle * paragraphStyle = [[NSMutableParagraphStyle alloc] init];
+</span><span class='line'>    paragraphStyle.alignment = NSTextAlignmentRight;
+</span><span class='line'>    paragraphStyle.headIndent = 4.0;
+</span><span class='line'>    paragraphStyle.lineBreakMode = NSLineBreakByCharWrapping;
+</span><span class='line'>    paragraphStyle.lineSpacing = 2.0;
+</span><span class='line'>    NSDictionary * attributes = @{NSParagraphStyleAttributeName:paragraphStyle};
+</span><span class='line'>    [attributeStr setAttributes:attributes range:NSMakeRange(0, attributeStr.length)];
+</span><span class='line'>    [attributeStr drawInRect:self.bounds];
+</span><span class='line'>
+</span><span class='line'>}
+</span><span class='line'>
+</span><span class='line'>@end</span></code></pre></td></tr></table></div></figure>
+
+
+<p>ViewController中添加代码</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>TextView *textView = [[TextView alloc] initWithFrame:CGRectMake(0, 0, 100, 80)];
+</span><span class='line'>textView.backgroundColor = [UIColor whiteColor];
+</span><span class='line'>textView.center = CGPointMake(self.view.center.x, self.view.center.y + 30);
+</span><span class='line'>[self.view addSubview:textView];</span></code></pre></td></tr></table></div></figure>
+
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">caiiiac</span></span>
+
+      
+
+
+
+
+<time class='entry-date' datetime='2015-08-10T14:03:23+08:00'><span class='date'><span class='date-month'>Aug</span> <span class='date-day'>10</span><span class='date-suffix'>th</span>, <span class='date-year'>2015</span></span> <span class='time'>2:03 pm</span></time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/ios/'>ios</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2015/08/07/nscalendar-and-nsdatecomponents/" title="Previous Post: NSCalendar &amp; NSDate​Components">&laquo; NSCalendar &amp; NSDate​Components</a>
+      
+      
+    </p>
+  </footer>
+</article>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2015/08/10/nsattributedstring-wen-ben-shu-xing-xiang-jie/">NSAttributedString 文本属性详解</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2015/08/07/nscalendar-and-nsdatecomponents/">NSCalendar &amp; NSDate​Components</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2015/08/07/chang-yong-hong-hui-zong/">常用宏汇总</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2015/08/07/li-yong-javascriptgai-bian-webviewzhong-tu-pian-de-da-xiao/">利用JavaScript改变webView中图片的大小</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2015/08/06/appsuo-xu-tu-pian-chi-cun-hui-zong/">App所需图片尺寸汇总</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2015 - caiiiac -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
