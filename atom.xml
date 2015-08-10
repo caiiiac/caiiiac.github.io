@@ -4,7 +4,7 @@
   <title><![CDATA[The scarecrow's blog]]></title>
   <link href="http://caiiiac.github.io/atom.xml" rel="self"/>
   <link href="http://caiiiac.github.io/"/>
-  <updated>2015-08-10T15:39:44+08:00</updated>
+  <updated>2015-08-10T16:55:18+08:00</updated>
   <id>http://caiiiac.github.io/</id>
   <author>
     <name><![CDATA[caiiiac]]></name>
@@ -150,7 +150,7 @@
 
 <p>效果</p>
 
-<p><img src="http://caiiiac.github.io/imagesWithBlog/0C9788C6-1AB5-43E2-9C39-0605E22F2990.png" alt="下划线" /></p>
+<p><img src="http://caiiiac.github.io/imagesWithBlog/0C9788C6-1AB5-43E2-9C39-0605E22F2990.png" alt="描边" /></p>
 
 <p>代码</p>
 
@@ -179,7 +179,7 @@
 
 <p>效果</p>
 
-<p><img src="http://caiiiac.github.io/imagesWithBlog/FC216299-3DFD-4897-9340-1BDCD9EE1C7A.png" alt="下划线" /></p>
+<p><img src="http://caiiiac.github.io/imagesWithBlog/FC216299-3DFD-4897-9340-1BDCD9EE1C7A.png" alt="阴影" /></p>
 
 <p>代码</p>
 
@@ -212,11 +212,11 @@
 
 <p>默认间隔</p>
 
-<p><img src="http://caiiiac.github.io/imagesWithBlog/1B2B4760-01BD-44C8-90A1-41B1B101B622.png" alt="下划线" /></p>
+<p><img src="http://caiiiac.github.io/imagesWithBlog/1B2B4760-01BD-44C8-90A1-41B1B101B622.png" alt="默认间隔" /></p>
 
 <p>间隔为5</p>
 
-<p><img src="http://caiiiac.github.io/imagesWithBlog/D7997F03-CE7E-4689-8E2E-23C6318CE56D.png" alt="下划线" /></p>
+<p><img src="http://caiiiac.github.io/imagesWithBlog/D7997F03-CE7E-4689-8E2E-23C6318CE56D.png" alt="间隔为5" /></p>
 
 <p>代码</p>
 
@@ -241,7 +241,7 @@
 
 <p>效果</p>
 
-<p><img src="http://caiiiac.github.io/imagesWithBlog/A3BCEAB0-8946-4A3F-8545-A0CD624047D3.png" alt="下划线" /></p>
+<p><img src="http://caiiiac.github.io/imagesWithBlog/A3BCEAB0-8946-4A3F-8545-A0CD624047D3.png" alt="字体倾斜" /></p>
 
 <p>代码</p>
 
@@ -266,7 +266,7 @@
 
 <p>效果</p>
 
-<p><img src="http://caiiiac.github.io/imagesWithBlog/E00D97D1-F0AC-4ED3-82C5-96FA8BA19551.png" alt="下划线" /></p>
+<p><img src="http://caiiiac.github.io/imagesWithBlog/E00D97D1-F0AC-4ED3-82C5-96FA8BA19551.png" alt="字体扁平化" /></p>
 
 <p>代码</p>
 
@@ -292,7 +292,7 @@
 
 <p>效果</p>
 
-<p><img src="http://caiiiac.github.io/imagesWithBlog/3A996070-E495-48B8-A3D1-39B217D28866.png" alt="下划线" /></p>
+<p><img src="http://caiiiac.github.io/imagesWithBlog/3A996070-E495-48B8-A3D1-39B217D28866.png" alt="添加图片" /></p>
 
 <p>代码</p>
 
@@ -324,7 +324,7 @@
 
 <p>效果</p>
 
-<p><img src="http://caiiiac.github.io/imagesWithBlog/021BF7E2-1BE4-4509-B70C-95268B594D8C.png" alt="下划线" /></p>
+<p><img src="http://caiiiac.github.io/imagesWithBlog/021BF7E2-1BE4-4509-B70C-95268B594D8C.png" alt="绘图风格" /></p>
 
 <p>代码
 自定义TextView类</p>
@@ -378,6 +378,8 @@
 </span><span class='line'>textView.center = CGPointMake(self.view.center.x, self.view.center.y + 30);
 </span><span class='line'>[self.view addSubview:textView];</span></code></pre></td></tr></table></div></figure>
 
+
+<p><strong>Demo地址:</strong><a href="https://github.com/caiiiac/AttributeStringDemo">点此查看</a></p>
 ]]></content>
   </entry>
   
