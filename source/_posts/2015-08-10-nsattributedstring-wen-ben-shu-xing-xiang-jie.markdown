@@ -97,7 +97,7 @@ label.attributedText = attributedString;
 
 效果
 
-![下划线](/imagesWithBlog/0C9788C6-1AB5-43E2-9C39-0605E22F2990.png)
+![描边](/imagesWithBlog/0C9788C6-1AB5-43E2-9C39-0605E22F2990.png)
 
 代码
 
@@ -118,7 +118,7 @@ label.attributedText = attributedString;
 
 效果
 
-![下划线](/imagesWithBlog/FC216299-3DFD-4897-9340-1BDCD9EE1C7A.png)
+![阴影](/imagesWithBlog/FC216299-3DFD-4897-9340-1BDCD9EE1C7A.png)
 
 代码
 
@@ -141,11 +141,11 @@ label.attributedText = attributedString;
 
 默认间隔
 
-![下划线](/imagesWithBlog/1B2B4760-01BD-44C8-90A1-41B1B101B622.png)
+![默认间隔](/imagesWithBlog/1B2B4760-01BD-44C8-90A1-41B1B101B622.png)
 
 间隔为5
 
-![下划线](/imagesWithBlog/D7997F03-CE7E-4689-8E2E-23C6318CE56D.png)
+![间隔为5](/imagesWithBlog/D7997F03-CE7E-4689-8E2E-23C6318CE56D.png)
 
 代码
 
@@ -164,7 +164,7 @@ label.attributedText = attributedString;
 
 效果
 
-![下划线](/imagesWithBlog/A3BCEAB0-8946-4A3F-8545-A0CD624047D3.png)
+![字体倾斜](/imagesWithBlog/A3BCEAB0-8946-4A3F-8545-A0CD624047D3.png)
 
 代码
 
@@ -182,7 +182,7 @@ label.attributedText = attributedString;
 
 效果
 
-![下划线](/imagesWithBlog/E00D97D1-F0AC-4ED3-82C5-96FA8BA19551.png)
+![字体扁平化](/imagesWithBlog/E00D97D1-F0AC-4ED3-82C5-96FA8BA19551.png)
 
 代码
 
@@ -202,7 +202,7 @@ label.attributedText = attributedString;
 
 效果
 
-![下划线](/imagesWithBlog/3A996070-E495-48B8-A3D1-39B217D28866.png)
+![添加图片](/imagesWithBlog/3A996070-E495-48B8-A3D1-39B217D28866.png)
 
 代码
 
@@ -225,7 +225,7 @@ label.attributedText = attributedString;
 
 效果
 
-![下划线](/imagesWithBlog/021BF7E2-1BE4-4509-B70C-95268B594D8C.png)
+![绘图风格](/imagesWithBlog/021BF7E2-1BE4-4509-B70C-95268B594D8C.png)
 
 代码
 自定义TextView类
@@ -259,3 +259,5 @@ textView.backgroundColor = [UIColor whiteColor];
 textView.center = CGPointMake(self.view.center.x, self.view.center.y + 30);
 [self.view addSubview:textView];
 ```
+
+**Demo地址:**[点此查看](https://github.com/caiiiac/AttributeStringDemo)
