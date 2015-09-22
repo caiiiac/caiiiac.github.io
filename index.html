@@ -9,7 +9,7 @@
   <meta name="author" content="caiiiac">
 
   
-  <meta name="description" content="NSAttributedString包含的所有Key 1
+  <meta name="description" content="在iOS9中,苹果将原http协议改成了https协议,使用TLS1.2 SSL加密请求数据 解决方法 在info.plist中添加 1
 2
 3
 4
@@ -21,16 +21,7 @@
 10
 11
 12
-13
-14
-15
-16
-17
-18
-19
-20
-NSFontAttributeName; //字体，value是UIFont对象
-NSParagraphStyleAttributeName &hellip;">
+&lt;plist&gt; &lt;dict&gt; .... &lt;key&gt; &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -86,6 +77,65 @@ NSParagraphStyleAttributeName &hellip;">
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2015/09/17/she-zhi-xcode7%7Cios9-yu-fu-wu-qi-jiao-hu-zhi-zhi-chi-http/">设置Xcode7|iOS9 与服务器交互支支持HTTP</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2015-09-17T13:43:06+08:00'><span class='date'><span class='date-month'>Sep</span> <span class='date-day'>17</span><span class='date-suffix'>th</span>, <span class='date-year'>2015</span></span> <span class='time'>1:43 pm</span></time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>在iOS9中,苹果将原<code>http</code>协议改成了<code>https</code>协议,使用<code>TLS1.2 SSL</code>加密请求数据</p>
+
+<h2>解决方法</h2>
+
+<p>在info.plist中添加</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>&lt;plist&gt;
+</span><span class='line'>
+</span><span class='line'>  &lt;dict&gt;
+</span><span class='line'>     ....
+</span><span class='line'>     &lt;key&gt;NSAppTransportSecurity&lt;/key&gt;
+</span><span class='line'>     &lt;dict&gt;
+</span><span class='line'>        &lt;key&gt;NSAllowsArbitraryLoads&lt;/key&gt;
+</span><span class='line'>        &lt;true/&gt;
+</span><span class='line'>     &lt;/dict&gt;
+</span><span class='line'>  &lt;/dict&gt;
+</span><span class='line'>
+</span><span class='line'>&lt;/plist&gt; </span></code></pre></td></tr></table></div></figure>
+
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -1252,6 +1302,10 @@ NSParagraphStyleAttributeName &hellip;">
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2015/09/17/she-zhi-xcode7%7Cios9-yu-fu-wu-qi-jiao-hu-zhi-zhi-chi-http/">设置Xcode7|iOS9 与服务器交互支支持HTTP</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2015/08/10/nsattributedstring-wen-ben-shu-xing-xiang-jie/">NSAttributedString 文本属性详解</a>
       </li>
     
@@ -1265,10 +1319,6 @@ NSParagraphStyleAttributeName &hellip;">
     
       <li class="post">
         <a href="/blog/2015/08/07/li-yong-javascriptgai-bian-webviewzhong-tu-pian-de-da-xiao/">利用JavaScript改变webView中图片的大小</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2015/08/06/appsuo-xu-tu-pian-chi-cun-hui-zong/">App所需图片尺寸汇总</a>
       </li>
     
   </ul>
