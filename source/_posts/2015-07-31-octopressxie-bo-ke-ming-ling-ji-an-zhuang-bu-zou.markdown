@@ -99,3 +99,17 @@ $ rake setup_github_pages
 
 生成的**SSH keys**保存在: `~/.ssh`拷贝生成的文件内容,将其添加至github帐号管理的SSH key中,就可以克隆github上的代码库了.
 
+
+
+##多台电脑同步写作
+
+首先把工程`clone`下来,切换到`source`分支
+另外需要把`master clone`到`_deploy`目录中
+
+```
+git clone https://github.com/caiiiac/caiiiac.github.io.git
+cd caiiiac.github.io
+git checkout source
+git clone https://github.com/caiiiac/caiiiac.github.io.git _deploy
+
+```
