@@ -4,7 +4,7 @@
   <title><![CDATA[The scarecrow's blog]]></title>
   <link href="http://caiiiac.github.io/atom.xml" rel="self"/>
   <link href="http://caiiiac.github.io/"/>
-  <updated>2015-09-22T13:21:10+08:00</updated>
+  <updated>2015-09-22T13:32:06+08:00</updated>
   <id>http://caiiiac.github.io/</id>
   <author>
     <name><![CDATA[caiiiac]]></name>
@@ -963,6 +963,22 @@
 <p>首先创建<strong>SSH keys</strong>,终端敲入:<code>ssh-keygen</code>,根据系统提示进行设置.</p>
 
 <p>生成的<strong>SSH keys</strong>保存在: <code>~/.ssh</code>拷贝生成的文件内容,将其添加至github帐号管理的SSH key中,就可以克隆github上的代码库了.</p>
+
+<h2>多台电脑同步写作</h2>
+
+<p>首先把工程<code>clone</code>下来,切换到<code>source</code>分支
+另外需要把<code>master clone</code>到<code>_deploy</code>目录中</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>git clone https://github.com/caiiiac/caiiiac.github.io.git
+</span><span class='line'>cd caiiiac.github.io
+</span><span class='line'>git checkout source
+</span><span class='line'>git clone https://github.com/caiiiac/caiiiac.github.io.git _deploy
+</span></code></pre></td></tr></table></div></figure>
+
 ]]></content>
   </entry>
   
